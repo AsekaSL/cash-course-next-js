@@ -1,3 +1,4 @@
+import BookEvent from "@/components/BookEvent";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -43,6 +44,8 @@ const  EventTags = ({tags} : {tags: string[]}) => (
   </div>
 )
 
+const booking = 10;
+
 
   return (
     <section id="event">
@@ -83,7 +86,17 @@ const  EventTags = ({tags} : {tags: string[]}) => (
 
         {/* Right Side */}
         <aside className="booking">
-          <p className="text-lg font-semibold">Book event</p>
+          <p className="signup-card">
+            <h2>Book Your Spot</h2>
+            {booking > 0 ? (
+              <p> Join {booking} people who already booked their spot!</p>
+            ): (
+              <p className="text-sm" >Be the first to book your spot!</p>
+            )}
+
+
+            <BookEvent />
+          </p>
         </aside>
       </div>
     </section>  
