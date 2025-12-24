@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <style>
+      .bg{fill:#0f172a}
+      .title{font-family:Arial, Helvetica, sans-serif;fill:#34d399;font-size:48px;font-weight:700}
+      .sub{font-family:Arial, Helvetica, sans-serif;fill:#c7f9e3;font-size:18px}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="630" rx="16"/>
+  <text x="60" y="200" class="title">HackMIT</text>
+  <text x="60" y="250" class="sub">Cambridge, MA — Sept 19–20, 2026</text>
+</svg>
