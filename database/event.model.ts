@@ -137,7 +137,7 @@ eventSchema.pre<EventDoc>('save', async function (next) {
 eventSchema.statics.build = (attrs: EventAttrs) => new Event(attrs)
 
 // Export model
-const Event = mongoose.model<EventDoc, EventModel>('Event', eventSchema)
+const Event = mongoose.models.Event || mongoose.model<EventDoc, EventModel>('Event', eventSchema)
 
 export { Event }
 export default Event

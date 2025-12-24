@@ -1,8 +1,14 @@
 import EventCard from "@/components/EventCard"
+import { EventAttrs } from "@/database/event.model";
 import { events } from "@/lib/constant"
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-const page = () => {
+const page = async () => {
+  
+  const response = await fetch(`${BASE_URL}/api/events`);
+  const {events} = await response.json();
+
   return (
     <section>
       <div className="text-center font-bold text-4xl">
@@ -13,7 +19,7 @@ const page = () => {
       </p>
       <div className="events flex flex-wrap justify-center gap-10 mt-10">
         {
-          events.map((event) => (
+          events && events.length > 0 && events.map((event : EventAttrs) => (
             <li key={event.title}>
               <EventCard {...event} />
             </li>
