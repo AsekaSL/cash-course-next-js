@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <style>
+      .bg{fill:#111827}
+      .title{font-family:Inter, Arial, Helvetica, sans-serif;fill:#00d1ff;font-size:52px;font-weight:700}
+      .sub{font-family:Inter, Arial, Helvetica, sans-serif;fill:#94a3b8;font-size:18px}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="630" rx="16"/>
+  <text x="60" y="200" class="title">Next.js Conf</text>
+  <text x="60" y="250" class="sub">Online — April 15, 2026</text>
+</svg>
