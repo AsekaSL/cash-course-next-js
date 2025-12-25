@@ -1,4 +1,7 @@
 import BookEvent from "@/components/BookEvent";
+import EventCard from "@/components/EventCard";
+import { EventAttrs } from "@/database/event.model";
+import { getSimilarEventsBySlug } from "@/lib/actions/event.actions";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -46,6 +49,7 @@ const  EventTags = ({tags} : {tags: string[]}) => (
 
 const booking = 10;
 
+const similarEvents = await getSimilarEventsBySlug(slug);
 
   return (
     <section id="event">
@@ -71,7 +75,7 @@ const booking = 10;
             <EventDetailItem icon="/icons/audience.svg" alt="audience" label={audience} />
           </section>  
 
-          <EventAgenda agendaItems={JSON.parse(agenda[0])} />
+          <EventAgenda agendaItems={agenda[0]} />
 
           <section className="flex-row-gap-2">
             <h2>About Organizer</h2>
@@ -86,19 +90,28 @@ const booking = 10;
 
         {/* Right Side */}
         <aside className="booking">
-          <p className="signup-card">
+          <div className="signup-card">
             <h2>Book Your Spot</h2>
             {booking > 0 ? (
               <p> Join {booking} people who already booked their spot!</p>
-            ): (
-              <p className="text-sm" >Be the first to book your spot!</p>
+            ) : (
+              <p className="text-sm">Be the first to book your spot!</p>
             )}
 
-
-            <BookEvent />
-          </p>
+            <BookEvent slug={slug} />
+          </div>
         </aside>
       </div>
+
+      <div>
+        <h2>Similar Events</h2>
+        <div>
+          {similarEvents.length > 0 && similarEvents.map((similarEvents: EventAttrs) => (
+            <EventCard {...similarEvents} key={similarEvents.title}/>
+          ))}
+        </div>
+      </div>
+
     </section>  
 
 )}
