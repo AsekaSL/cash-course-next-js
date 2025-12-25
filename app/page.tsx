@@ -20,7 +20,7 @@ const page = async () => {
       <div className="events flex flex-wrap justify-center gap-10 mt-10">
         {
           events && events.length > 0 && events.map((event : EventAttrs) => (
-            <li key={event.title}>
+            <li key={event.title} className="list-none">
               <EventCard {...event} />
             </li>
           ))
